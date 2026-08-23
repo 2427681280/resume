@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夏成辉 · 个人介绍</title>
+<style>
+/* ============================================================
+   夏成辉 · 个人介绍 —— Apple 产品页风格
+   深色/浅色区块交替 · 滚动渐入渐出 · 实况动图展示
+   ============================================================ */
+:root{
+  --orange:#f56300;
+  --blue:#2997ff;
+  --green:#30d158;
+  --text-dark:#1d1d1d;
+  --gray-1:#6e6e73;
+  --gray-2:#86868b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"SF Pro SC","SF Pro Display","PingFang SC","Microsoft YaHei","Helvetica Neue",sans-serif;
+  background:#000;color:#f5f5f7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+::selection{background:rgba(245,99,0,.4)}
+
+/* ============ 吸顶导航 ============ */
+.nav{
+  position:sticky;top:0;z-index:1200;height:50px;
+  background:rgba(20,20,22,.75);
+  -webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+  border-bottom:1px solid rgba(255,255,255,0);transition:border-color .3s;
+}
+.nav.scrolled{border-bottom-color:rgba(255,255,255,.09)}
+.nav-inner{max-width:1080px;height:100%;margin:0 auto;padding:0 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav .name{font-size:17px;font-weight:600;
+  background:linear-gradient(92deg,#ffd9b8,#ff9a4d 45%,#f56300);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12px;color:#c9c9ce;transition:color .2s}
+.nav-links a:hover{color:#fff}
+.nav-btn{background:#f5f5f7;color:#000;font-size:12px;font-weight:600;
+  padding:6px 15px;border-radius:980px;white-space:nowrap;transition:background .2s}
+.nav-btn:hover{background:#fff}
+@media (max-width:860px){.nav-links{display:none}}
+
+/* ============ 通用 ============ */
+.section{padding:110px 24px;position:relative;overflow:hidden}
+.section.light{background:#fff;color:var(--text-dark)}
+.section.gray{background:#f5f5f7;color:var(--text-dark)}
+.wrap{max-width:1080px;margin:0 auto;position:relative;z-index:2}
+.eyebrow{font-size:16px;font-weight:600;color:var(--orange);margin-bottom:14px}
+.section.light .eyebrow,.section.gray .eyebrow{color:#c2410c}
+.h2{font-size:clamp(34px,5.4vw,56px);font-weight:700;letter-spacing:-.015em;line-height:1.14}
+.h2 .thin{color:var(--gray-2)}
+.section.light .h2 .thin,.section.gray .h2 .thin{color:#86868b}
+.lead{font-size:clamp(18px,2.3vw,24px);line-height:1.55;margin-top:20px;color:#b9b9be;max-width:800px}
+.section.light .lead,.section.gray .lead{color:#494949}
+.center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
+.grad-orange{background:linear-gradient(92deg,#ffd9b8,#ff9a4d 45%,#f56300);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ Hero ============ */
+.hero{padding:110px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-20vw;transform:translateX(-50%);
+  width:110vw;height:70vw;pointer-events:none;
+  background:radial-gradient(50% 50% at 50% 50%,rgba(245,99,0,.20),transparent 70%)}
+.hero .kick{font-size:17px;color:var(--gray-2);position:relative}
+.hero h1{font-size:clamp(64px,10vw,124px);font-weight:700;letter-spacing:.02em;line-height:1.06;
+  margin-top:14px;position:relative;
+  background:linear-gradient(94deg,#fff 0%,#ffd9b8 30%,#ff9a4d 62%,#f56300 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{color:var(--gray-2);font-size:16px;margin-top:22px;position:relative;line-height:1.7}
+.badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px;position:relative}
+.badge{font-size:14px;font-weight:600;padding:9px 18px;border-radius:980px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
+.badge.hot{background:rgba(245,99,0,.14);border-color:rgba(245,99,0,.5);color:#ffb46e}
+
+/* ============ 概览 ============ */
+.overview-text{font-size:clamp(23px,3.4vw,38px);line-height:1.45;font-weight:600;
+  letter-spacing:-.01em;max-width:920px;margin:0 auto;text-align:center}
+.overview-text .dim{color:#6e6e73}
+.overview-text .hi{background:linear-gradient(92deg,#ff9a4d,#f56300);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ============ 教育 ============ */
+.edu-card{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;margin-top:54px}
+@media (max-width:820px){.edu-card{grid-template-columns:1fr}}
+.edu-main{background:linear-gradient(165deg,#101014,#1a1a1e);border:1px solid rgba(255,255,255,.1);
+  border-radius:28px;padding:44px 40px;color:#f5f5f7}
+.edu-main h3{font-size:30px;font-weight:700}
+.edu-main .dept{color:#ffb46e;font-size:17px;font-weight:600;margin-top:10px}
+.edu-main ul{margin-top:26px}
+.edu-main li{font-size:15.5px;color:#b9b9be;padding:9px 0;border-top:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;gap:12px}
+.edu-main li b{color:#f5f5f7;font-weight:600}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.sg{background:#fff;border:1px solid #e8e8ea;border-radius:24px;padding:26px 24px}
+.sg .v{font-size:clamp(28px,3vw,34px);font-weight:700;
+  background:linear-gradient(92deg,#ff9a4d,#f56300);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sg .k{font-size:13.5px;color:var(--gray-1);margin-top:6px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px;justify-content:center}
+.chip{font-size:14px;color:#494949;background:#fff;border:1px solid #e3e3e6;
+  padding:8px 16px;border-radius:980px}
+.chip b{color:#c2410c}
+
+/* ============ 保研去向 ============ */
+.grad-banner{max-width:860px;margin:54px auto 0;display:flex;align-items:center;gap:26px;
+  background:linear-gradient(135deg,rgba(245,99,0,.16),rgba(245,99,0,.04));
+  border:1px solid rgba(245,99,0,.38);border-radius:26px;padding:34px 40px;
+  flex-wrap:wrap;justify-content:center;text-align:center}
+.grad-banner .seal{font-size:48px}
+.grad-banner .txt h3{font-size:24px;font-weight:700}
+.grad-banner .txt p{color:#b9b9be;font-size:15px;margin-top:8px}
+.grad-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media (max-width:860px){.grad-grid{grid-template-columns:1fr}}
+.grad-card{background:linear-gradient(180deg,#18181b,#0d0d0f);border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;padding:36px 30px;position:relative;overflow:hidden;
+  transition:transform .35s,border-color .35s}
+.grad-card:hover{transform:translateY(-6px);border-color:rgba(245,99,0,.5)}
+.grad-card::before{content:"";position:absolute;top:-70px;right:-70px;width:220px;height:220px;
+  background:radial-gradient(circle,rgba(245,99,0,.18),transparent 70%)}
+.grad-card .ico{font-size:30px}
+.grad-card h4{font-size:20px;font-weight:700;margin:16px 0 8px}
+.grad-card p{font-size:14.5px;color:#a8a8ad;line-height:1.65}
+.grad-card .tags{margin-top:16px}
+
+/* ============ 技术栈面板 ============ */
+.stack-panel{background:linear-gradient(180deg,#18181b,#0d0d0f);border:1px solid rgba(255,255,255,.09);
+  border-radius:28px;padding:40px 36px;margin-top:54px}
+.stack-head{font-size:20px;font-weight:700}
+.stack-sub{color:var(--gray-2);font-size:14px;margin:8px 0 28px}
+.stack-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+@media (max-width:860px){.stack-cols{grid-template-columns:1fr}}
+.stack-cols h5{font-size:15px;font-weight:700;color:#ffb46e;margin-bottom:14px}
+
+/* ============ 竞赛 ============ */
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+@media (max-width:820px){.tiles{grid-template-columns:1fr}}
+.tile{background:linear-gradient(180deg,#18181b,#0d0d0f);border:1px solid rgba(255,255,255,.09);
+  border-radius:28px;padding:42px 38px;position:relative;overflow:hidden;
+  transition:transform .35s,border-color .35s}
+.tile:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2)}
+.tile .medal{position:absolute;top:34px;right:34px;font-size:15px;font-weight:700;
+  padding:7px 16px;border-radius:980px}
+.medal.g1{background:linear-gradient(92deg,#ffd9b8,#f56300);color:#2b1200}
+.medal.g2{background:linear-gradient(92deg,#e8e8ed,#a7a7ad);color:#222}
+.medal.g3{background:linear-gradient(92deg,#ffb46e,#f56300);color:#2b1200}
+.tile .ico{font-size:44px}
+.tile h3{font-size:24px;font-weight:700;margin-top:20px;line-height:1.3}
+.tile .role{color:#ffb46e;font-size:14px;font-weight:600;margin-top:8px}
+.tile p{font-size:15.5px;line-height:1.65;color:#a8a8ad;margin-top:14px}
+.tile .when{font-size:13px;color:var(--gray-2);margin-top:16px}
+
+/* ============ 作品实况 ============ */
+.showcase{max-width:1000px;margin:56px auto 0;border-radius:28px;overflow:hidden;
+  border:1px solid rgba(255,255,255,.14);position:relative;
+  background:radial-gradient(80% 90% at 50% 0%,#1b1b20,#0a0a0c)}
+.showcase img{width:100%;display:block;max-height:620px;object-fit:contain;background:#0a0a0c}
+.showcase-tag{position:absolute;top:18px;left:20px;z-index:5;font-size:13px;font-weight:600;
+  background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16);color:#f5f5f7;
+  padding:6px 14px;border-radius:980px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.showcase-cap{padding:16px 22px 20px;color:#a8a8ad;font-size:14px;text-align:center}
+.real-media.single{grid-template-columns:1fr;max-width:760px}
+.video-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:24px auto 0}
+@media (max-width:760px){.video-grid{grid-template-columns:1fr}}
+.vid-card{margin:0}
+.vid-card video{width:100%;aspect-ratio:16/9;object-fit:contain;display:block;
+  background:#000;border-radius:22px;border:1px solid rgba(255,255,255,.14)}
+.vid-card figcaption{color:var(--gray-2);font-size:13.5px;text-align:center;margin-top:12px}
+.spec-list{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+@media (max-width:900px){.spec-list{grid-template-columns:repeat(2,1fr)}}
+.sp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px 20px}
+.sp .ico{font-size:22px}
+.sp h5{font-size:13px;color:var(--gray-2);margin:10px 0 5px;font-weight:600}
+.sp p{font-size:15px;font-weight:600;line-height:1.4}
+
+/* ============ 专利 ============ */
+.patent-card{max-width:860px;margin:54px auto 0;background:#fff;border:1px solid #e6e6e9;
+  border-radius:28px;padding:48px 44px;position:relative;overflow:hidden}
+.patent-card::before{content:"";position:absolute;top:-120px;right:-120px;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(245,99,0,.14),transparent 70%)}
+.patent-card .p-kick{font-size:13px;font-weight:700;letter-spacing:.14em;color:#c2410c}
+.patent-card h3{font-size:clamp(24px,3.4vw,34px);font-weight:700;margin-top:12px}
+.patent-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.p-tag{font-size:13.5px;color:#494949;background:#f5f5f7;border:1px solid #e6e6e9;
+  padding:7px 14px;border-radius:980px}
+.p-tag b{color:#1d1d1d}
+.timeline{max-width:760px;margin:60px auto 0;position:relative;padding-left:34px}
+.timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;
+  background:linear-gradient(180deg,#ffd9b8,#f56300)}
+.t-item{position:relative;padding:0 0 38px 24px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:"";position:absolute;left:-33px;top:4px;width:16px;height:16px;border-radius:50%;
+  background:#fff;border:3px solid #f56300;box-shadow:0 0 0 4px rgba(245,99,0,.15)}
+.t-item h4{font-size:19px;font-weight:700}
+.t-item p{font-size:14.5px;color:#6e6e73;margin-top:5px;line-height:1.55}
+.t-item .date{font-size:13px;color:#c2410c;font-weight:600}
+
+/* ============ 荣誉墙 ============ */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:44px 0 34px}
+.fbtn{font-size:14px;font-weight:600;padding:9px 22px;border-radius:980px;cursor:pointer;
+  border:1px solid #d9d9de;background:#fff;color:#494949;transition:all .2s}
+.fbtn:hover{border-color:#999}
+.fbtn.on{background:#1d1d1d;color:#fff;border-color:#1d1d1d}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media (max-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.cert{background:#fff;border:1px solid #e6e6e9;border-radius:18px;overflow:hidden;cursor:pointer;
+  transition:transform .3s,box-shadow .3s}
+.cert:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(0,0,0,.12)}
+.cert img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f0f0f2}
+.cert .cap{padding:12px 14px 14px}
+.cert .cap h6{font-size:13px;font-weight:600;color:#1d1d1d;line-height:1.4}
+.cert .cap span{display:inline-block;font-size:11px;font-weight:700;margin-top:7px;
+  padding:3px 10px;border-radius:980px}
+.lv-国家{background:#ffe9db;color:#c2410c}
+.lv-省{background:#e3f0ff;color:#0066cc}
+.lv-校{background:#e9f9ee;color:#1a7a3a}
+.lv-院{background:#efeaff;color:#5b3fd4}
+.lv-其他{background:#f0f0f2;color:#555}
+.cert.hide{display:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.88);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px;
+  opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb img{max-width:min(1100px,92vw);max-height:78vh;border-radius:12px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6);transform:scale(.94);transition:transform .35s}
+.lb.open img{transform:scale(1)}
+.lb .cap{color:#e8e8ea;font-size:15px;font-weight:600;text-align:center;padding:0 20px}
+.lb .close{position:absolute;top:22px;right:26px;font-size:30px;color:#fff;cursor:pointer;
+  width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;line-height:1}
+.lb .arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:34px;color:#fff;
+  width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.12);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .2s}
+.lb .arrow:hover{background:rgba(255,255,255,.22)}
+.lb .prev{left:22px}.lb .next{right:22px}
+
+/* ============ 技能 ============ */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+@media (max-width:860px){.skills{grid-template-columns:1fr}}
+.skill{background:linear-gradient(180deg,#18181b,#0d0d0f);border:1px solid rgba(255,255,255,.09);
+  border-radius:24px;padding:34px 30px}
+.skill .ico{font-size:30px}
+.skill h4{font-size:19px;font-weight:700;margin:16px 0 16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:13px;color:#d8d8dc;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.13);padding:6px 13px;border-radius:980px}
+
+/* ============ 生活 ============ */
+.life-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:54px}
+@media (max-width:860px){.life-grid{grid-template-columns:1fr}}
+.life{background:#fff;border:1px solid #e6e6e9;border-radius:24px;padding:36px 30px}
+.life .ico{font-size:32px}
+.life h4{font-size:19px;font-weight:700;margin:16px 0 8px}
+.life p{font-size:14.5px;color:#555;line-height:1.6}
+
+/* ============ 页脚 ============ */
+footer{background:#0a0a0c;border-top:1px solid rgba(255,255,255,.07);padding:70px 24px 40px;text-align:center}
+footer .fname{font-size:clamp(26px,4vw,38px);font-weight:700;
+  background:linear-gradient(92deg,#ffd9b8,#ff9a4d 45%,#f56300);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+footer .contact{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+footer .contact a{font-size:15px;color:#e8e8ea;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);padding:10px 22px;border-radius:980px;transition:background .2s}
+footer .contact a:hover{background:rgba(255,255,255,.14)}
+footer .contact a.main{background:#f5f5f7;color:#000;border-color:#f5f5f7;font-weight:600}
+
+/* ============ 实拍 / 专利配图 / 瞬间画廊 ============ */
+.real-media{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:44px auto 0}
+@media (max-width:760px){.real-media{grid-template-columns:1fr}}
+.rm-card,.pm,.moment{margin:0;cursor:pointer}
+.rm-card img,.pm img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;
+  border-radius:22px;border:1px solid rgba(255,255,255,.14);transition:transform .35s}
+.rm-card:hover img,.pm:hover img{transform:scale(1.015)}
+.rm-card figcaption{color:var(--gray-2);font-size:13.5px;text-align:center;margin-top:12px}
+.patent-media{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:40px auto 0}
+@media (max-width:760px){.patent-media{grid-template-columns:1fr}}
+.pm img{border:1px solid #e3e3e6;border-radius:20px;background:#fff}
+.pm figcaption{color:#6e6e73;font-size:13.5px;text-align:center;margin-top:12px}
+.moments-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+@media (max-width:980px){.moments-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.moments-grid{grid-template-columns:repeat(2,1fr)}}
+.moment{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:16px;overflow:hidden;transition:transform .3s,border-color .3s}
+.moment:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.25)}
+.moment img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .35s}
+.moment:hover img{transform:scale(1.04)}
+.moment figcaption{font-size:12.5px;color:#a8a8ad;padding:10px 12px;text-align:center}
+
+/* ============ 滚动渐入渐出 ============ */
+.reveal{opacity:0;transform:translateY(30px);
+  transition:opacity .85s cubic-bezier(.25,.46,.45,.94),transform .85s cubic-bezier(.25,.46,.45,.94)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
+.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+/* 静态模式：#still 时禁用所有渐入渐出（用于截图/打印/分享） */
+html.still .reveal{opacity:1 !important;transform:none !important;transition:none !important}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 导航 ============ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <span class="name">夏成辉</span>
+    <div class="nav-links">
+      <a href="#grad">保研去向</a>
+      <a href="#edu">教育背景</a>
+      <a href="#race">竞赛经历</a>
+      <a href="#work">作品展示</a>
+      <a href="#patent">发明专利</a>
+      <a href="#moments">瞬间</a>
+      <a href="#honors">荣誉墙</a>
+      <a href="#skills">专业技能</a>
+    </div>
+    <a class="nav-btn" href="docs/夏成辉个人简历.pdf" target="_blank">下载简历</a>
+  </div>
+</nav>
+
+<!-- ============ Hero ============ -->
+<header class="hero">
+  <p class="kick reveal">武汉理工大学 · 机电工程学院 · 硕士研究生</p>
+  <h1 class="reveal d1">个人简历</h1>
+  <p class="sub reveal d3">中共党员 · 班级团支书 · 校竞技机器人队核心成员 · 已保研至武汉理工大学</p>
+
+  <div class="badges reveal d3">
+    <span class="badge hot">🎓 本科：湖北工业大学机械工程学院</span>
+    <span class="badge hot">🏆 国家级一等奖 ×3</span>
+    <span class="badge">🎖️ 国家级证书 15 项</span>
+    <span class="badge">📜 发明专利 1 项（学生一作）</span>
+    <span class="badge">🤖 四代机器人整车设计</span>
+  </div>
+</header>
+
+<!-- ============ 概览 ============ -->
+<section class="section">
+  <div class="wrap">
+    <p class="overview-text reveal">
+      四年时间，我把课堂搬进了车间：
+      从 <span class="hi">机械结构设计</span> 到 <span class="hi">嵌入式控制</span>，
+      从陀螺仪融合算法到机器视觉抓取，
+      作为队长带队拿下 <span class="hi">中国大学生工程实践与创新能力大赛国家一等奖</span>。
+      <span class="dim">设计、制造、编程、调试——我享受让一台机器人从零到跑起来的全过程。
+      下一站武汉理工大学，让智能算法跑进方寸芯片之间。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============ 保研去向 ============ -->
+<section class="section" id="grad" style="background:#050507">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">保研去向</p>
+      <h2 class="h2">下一站，<span class="grad-orange">武汉理工大学</span></h2>
+    </div>
+    <div class="grad-banner reveal d1">
+      <div class="seal">🎓</div>
+      <div class="txt">
+        <h3>已保研至 武汉理工大学 · 机电工程学院</h3>
+        <p>硕士研究生 · 2026 年入学 · 研究方向：嵌入式 · 深度学习 · 端侧部署</p>
+      </div>
+    </div>
+    <div class="grad-grid">
+      <div class="grad-card reveal">
+        <div class="ico">🔌</div>
+        <h4>嵌入式系统</h4>
+        <p>从裸机到实时操作系统，让代码在资源受限的硬件上稳定、实时地运行——四年机器人整车开发的积累，正是从这里出发。</p>
+        <div class="tags"><span class="tag">STM32</span><span class="tag">FreeRTOS</span><span class="tag">实时调度</span></div>
+      </div>
+      <div class="grad-card reveal d1">
+        <div class="ico">🧠</div>
+        <h4>深度学习</h4>
+        <p>以数据驱动的方式解决感知与决策问题，关注轻量化网络设计，以及视觉算法在真实场景中的可靠落地。</p>
+        <div class="tags"><span class="tag">PyTorch</span><span class="tag">OpenCV</span><span class="tag">CNN</span></div>
+      </div>
+      <div class="grad-card reveal d2">
+        <div class="ico">📦</div>
+        <h4>端侧部署</h4>
+        <p>通过量化、剪枝与推理加速，把模型装进嵌入式设备——让 AI 在没有云端的现场，离线且低延迟地跑起来。</p>
+        <div class="tags"><span class="tag">TensorRT</span><span class="tag">ONNX</span><span class="tag">NPU</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 教育背景 ============ -->
+<section class="section light" id="edu">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">教育经历</p>
+      <h2 class="h2">扎根机械，<span class="thin">面向智能。</span></h2>
+    </div>
+    <div class="edu-card">
+      <div class="edu-main reveal">
+        <h3>湖北工业大学</h3>
+        <p class="dept">机械工程学院 · 机器人工程 · 2022.09 - 2026.06</p>
+        <ul>
+          <li><span>班级职务</span><b>团支书</b></li>
+          <li><span>政治面貌</span><b>中共党员</b></li>
+          <li><span>大学英语</span><b>CET-4 480 分</b></li>
+          <li><span>团队经历</span><b>校竞技机器人队核心成员</b></li>
+        </ul>
+      </div>
+      <div class="stat-grid">
+        <div class="sg reveal d1"><div class="v">3.64</div><div class="k">学分绩点（满分 5.0）</div></div>
+        <div class="sg reveal d2"><div class="v">3 / 70</div><div class="k">专业综合排名</div></div>
+        <div class="sg reveal d3"><div class="v">20 / 514</div><div class="k">年级排名（前 5%）</div></div>
+        <div class="sg reveal d4"><div class="v">96 分</div><div class="k">单科最高：嵌入式编程与实践</div></div>
+      </div>
+    </div>
+    <div class="chips reveal">
+      <span class="chip">嵌入式编程与实践 <b>96</b></span>
+      <span class="chip">模式识别与人工智能 <b>94</b></span>
+      <span class="chip">机械设计基础 <b>94</b></span>
+      <span class="chip">信号与系统 <b>93</b></span>
+      <span class="chip">工程力学 <b>90</b></span>
+      <span class="chip">自动控制原理</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 竞赛经历 ============ -->
+<section class="section" id="race">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">竞赛经历</p>
+      <h2 class="h2">以赛促学，<span class="thin">四次担任队长。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        从结构设计到控制算法，从单机调试到多机协同，每一场比赛都是一次完整的工程训练。
+      </p>
+    </div>
+    <div class="tiles">
+      <div class="tile reveal">
+        <span class="medal g1">国家一等奖</span>
+        <div class="ico">🚚</div>
+        <h3>中国大学生工程实践与创新能力大赛</h3>
+        <p class="role">队长 · 2024.11 - 2025.08</p>
+        <p>设计制作四自由度悬臂机械臂物流搬运小车：陀螺仪与电机编码器数据融合提升定位精度，集成扫码、屏显与颜色识别，实现物料快速抓取与圆环内精准放置。</p>
+        <p class="when">配套省级一等奖 · 整车模型见下方「作品展示」</p>
+      </div>
+      <div class="tile reveal d1">
+        <span class="medal g1">国家一等奖</span>
+        <div class="ico">⚽</div>
+        <h3>中国机器人及人工智能大赛</h3>
+        <p class="role">队长 · 2024.03 - 2024.08</p>
+        <p>负责足球机器人 C++ 脚本与决策代码编写，优化决策算法，将机器人间传球射门成功率提升至 95%。</p>
+        <p class="when">配套省级一等奖</p>
+      </div>
+      <div class="tile reveal d2">
+        <span class="medal g2">国家二等奖</span>
+        <div class="ico">🌾</div>
+        <h3>全国大学生机械创新设计大赛</h3>
+        <p class="role">队长 · 2023.12 - 2024.07</p>
+        <p>主导设计薏米播种施肥机：皮带轮传动使行进:播种:施肥:浇水传动比达 1:2:2:2，播种间距稳定 15cm、每穴 2 粒，全自动作业效率提升 5 倍，并申请国家发明专利 1 项。</p>
+        <p class="when">配套省级一等奖 · 专利详见下方</p>
+      </div>
+      <div class="tile reveal d3">
+        <span class="medal g3">国家奖 ×6</span>
+        <div class="ico">🏀</div>
+        <h3>ROBOCON 全国大学生机器人大赛</h3>
+        <p class="role">队长（操作挑战赛）· 2023.10 - 2025.08</p>
+        <p>协调团队完成三代车型结构迭代，负责底盘、取球与射球装置设计及整车调试；围绕农业机械化主题完成"育秧、插秧、收获、运粮入仓"全流程任务。</p>
+        <p class="when">2024：国二 ×2 · 国三 ×4 ｜ 2025"飞身上篮"：国二 ×1 · 国三 ×2</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 作品展示（实况） ============ -->
+<section class="section" id="work" style="background:#050507">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">代表作品</p>
+      <h2 class="h2">智能物流搬运小车。<span class="thin">实况演示。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">
+        工训国赛整车（SolidWorks 设计）：麦轮全向底盘 + 四自由度悬臂机械臂 + 升降机构 + 机器视觉。
+        下方动图与视频均为小车实际运行画面。
+      </p>
+    </div>
+
+    <div class="showcase reveal">
+      <span class="showcase-tag">▶ 实况演示 · 自动循环播放</span>
+      <img src="photos/物流小车实况.gif" alt="物流小车运行实录">
+      <p class="showcase-cap">🎬 机械臂抓取红蓝绿物料实录 —— 自主识别 · 精准抓取 · 搬运放置</p>
+    </div>
+
+    <div class="video-grid reveal">
+      <figure class="vid-card">
+        <video src="videos/循迹演示.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+        <figcaption>🚗 循迹演示 · 自动播放</figcaption>
+      </figure>
+      <figure class="vid-card">
+        <video src="videos/抓取演示.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
+        <figcaption>🦾 抓取演示 · 自动播放</figcaption>
+      </figure>
+    </div>
+
+    <div class="real-media single reveal">
+      <figure class="rm-card lb-trigger" data-cap="物流小车整车真机 · 2025 工训国赛国家一等奖">
+        <img src="photos/物流车图片.jpg" alt="物流小车真机" loading="lazy">
+        <figcaption>📷 整车真机 · 2025 工训国赛国家一等奖</figcaption>
+      </figure>
+    </div>
+
+    <div class="spec-list">
+      <div class="sp reveal"><div class="ico">🦾</div><h5>机械臂</h5><p>四自由度悬臂结构 · 环形爪末端</p></div>
+      <div class="sp reveal d1"><div class="ico">🛞</div><h5>底盘</h5><p>麦克纳姆轮 · 全向移动</p></div>
+      <div class="sp reveal d2"><div class="ico">🧭</div><h5>定位</h5><p>陀螺仪 + 编码器数据融合</p></div>
+      <div class="sp reveal d3"><div class="ico">👁️</div><h5>视觉</h5><p>颜色识别 · 扫码 · 屏显交互</p></div>
+      <div class="sp reveal"><div class="ico">📐</div><h5>升降</h5><p>步进电机伸缩 + 直线导轨</p></div>
+      <div class="sp reveal d1"><div class="ico">🧠</div><h5>主控</h5><p>树莓派 5 + MCU 协同控制</p></div>
+      <div class="sp reveal d2"><div class="ico">⚙️</div><h5>传动</h5><p>舵机夹爪 · 同步带传动</p></div>
+      <div class="sp reveal d3"><div class="ico">🏆</div><h5>成绩</h5><p>2025 工训国赛 · 国家一等奖</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 发明专利 ============ -->
+<section class="section light" id="patent">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">发明专利</p>
+      <h2 class="h2">从赛场，<span class="thin">到专利。</span></h2>
+    </div>
+    <div class="patent-card reveal">
+      <p class="p-kick">国家发明专利 · 学生第一作者</p>
+      <h3>一种播种施肥装置</h3>
+      <div class="patent-meta">
+        <span class="p-tag">申请号 <b>202410998359.6</b></span>
+        <span class="p-tag">申请人 <b>湖北工业大学</b></span>
+        <span class="p-tag">公布日 <b>2024.10.25</b></span>
+        <span class="p-tag">状态 <b>已公布 · 进入实质审查</b></span>
+      </div>
+    </div>
+    <div class="patent-media reveal">
+      <figure class="pm lb-trigger" data-cap="薏米播种施肥机 · 运行演示">
+        <img src="photos/薏米播种施肥机.gif" alt="薏米播种施肥机运行演示" loading="lazy">
+        <figcaption>薏米播种施肥机 · 运行演示</figcaption>
+      </figure>
+      <figure class="pm lb-trigger" data-cap="薏米播种施肥机整机 · 专利源自该竞赛作品">
+        <img src="photos/播种机图片.png" alt="薏米播种施肥机" loading="lazy">
+        <figcaption>整机展示 · 专利源自该竞赛作品</figcaption>
+      </figure>
+    </div>
+    <div class="timeline">
+      <div class="t-item reveal"><span class="date">2024 年</span><h4>专利申请受理</h4><p>基于机械创新设计大赛作品"薏米播种施肥机"的核心传动与播种机构提交发明专利申请。</p></div>
+      <div class="t-item reveal"><span class="date">2024.10.25</span><h4>发明专利申请公布</h4><p>经初步审查符合专利法实施细则第 50 条规定，于专利公报第 40 卷 4302 期公布。</p></div>
+      <div class="t-item reveal"><span class="date">2024 - 2025</span><h4>初步审查合格</h4><p>收到国家知识产权局《发明专利申请初步审查合格通知书》。</p></div>
+      <div class="t-item reveal"><span class="date">进行中</span><h4>进入实质审查阶段</h4><p>已收到《发明专利申请进入实质审查阶段通知书》，审查持续推进中。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 瞬间 ============ -->
+<section class="section" id="moments">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">瞬间</p>
+      <h2 class="h2">赛场与团队，<span class="thin">都是青春的证据。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">从 ROBOCON 赛场到马拉松起点，点击任意照片查看大图。</p>
+    </div>
+    <div class="moments-grid">
+      <figure class="moment lb-trigger reveal" data-cap="ROBOCON 赛场机器人">
+        <img src="photos/图片1.jpg" alt="ROBOCON 赛场机器人" loading="lazy"><figcaption>ROBOCON 赛场机器人</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d1" data-cap="ROBOCON 运球机器人">
+        <img src="photos/图片2.jpg" alt="ROBOCON 运球机器人" loading="lazy"><figcaption>ROBOCON 运球机器人</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d2" data-cap="仿生足式机器人挑战赛 · 足式机器人">
+        <img src="photos/图片3.png" alt="足式机器人" loading="lazy"><figcaption>仿生足式挑战赛 · 足式机器人</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d3" data-cap="足式机器人平台调试">
+        <img src="photos/图片4.jpg" alt="足式机器人平台" loading="lazy"><figcaption>足式机器人平台调试</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal" data-cap="ROBOCON“飞身上篮”机器人">
+        <img src="photos/图片5.png" alt="ROBOCON 飞身上篮机器人" loading="lazy"><figcaption>ROBOCON“飞身上篮”机器人</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d1" data-cap="2025 工训大赛 · 团队合影">
+        <img src="photos/合照1.png" alt="2025 工训大赛团队合影" loading="lazy"><figcaption>2025 工训大赛 · 团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d2" data-cap="2024 武汉马拉松 · 赛前合影">
+        <img src="photos/合照2.jpg" alt="2024 武汉马拉松合影" loading="lazy"><figcaption>2024 武汉马拉松 · 赛前合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d3" data-cap="团队合影">
+        <img src="photos/合照3.jpg" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal" data-cap="团队合影">
+        <img src="photos/合照4.jpg" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d1" data-cap="团队合影">
+        <img src="photos/合照5.jpg" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d2" data-cap="团队合影">
+        <img src="photos/合照6.png" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d3" data-cap="团队合影">
+        <img src="photos/合照7.jpg" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal" data-cap="团队合影">
+        <img src="photos/合照8.png" alt="团队合影" loading="lazy"><figcaption>团队合影</figcaption>
+      </figure>
+      <figure class="moment lb-trigger reveal d1" data-cap="2025 工训大赛 · 团队合影">
+        <img src="photos/合照10.png" alt="2025 工训大赛团队合影" loading="lazy"><figcaption>2025 工训大赛 · 团队合影</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 荣誉墙 ============ -->
+<section class="section gray" id="honors">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">荣誉墙</p>
+      <h2 class="h2">每一张证书，<span class="thin">都是一段日夜。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">国家级 15 项 · 省级 8 项 · 校院级 4 项。点击任意证书查看大图。</p>
+    </div>
+    <div class="filters reveal">
+      <button class="fbtn on" data-f="all">全部</button>
+      <button class="fbtn" data-f="国家级">国家级</button>
+      <button class="fbtn" data-f="省级">省级</button>
+      <button class="fbtn" data-f="校级">校 / 院级</button>
+      <button class="fbtn" data-f="其他">其他</button>
+    </div>
+    <div class="gallery" id="gallery"><!-- JS 生成 --></div>
+  </div>
+</section>
+
+<!-- ============ 专业技能 ============ -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">专业技能</p>
+      <h2 class="h2">机械 × 电控 × 代码，<span class="thin">三位一体。</span></h2>
+    </div>
+    <div class="stack-panel reveal">
+      <div class="stack-head">🎯 研究方向技术栈</div>
+      <p class="stack-sub">围绕研究生阶段「嵌入式 × 深度学习 × 端侧部署」方向持续积累</p>
+      <div class="stack-cols">
+        <div>
+          <h5>嵌入式</h5>
+          <div class="tags"><span class="tag">C / C++</span><span class="tag">STM32</span><span class="tag">FreeRTOS</span><span class="tag">RT-Thread</span><span class="tag">Keil MDK</span><span class="tag">UART / SPI / I2C / CAN</span><span class="tag">电机控制</span><span class="tag">传感器融合</span></div>
+        </div>
+        <div>
+          <h5>深度学习</h5>
+          <div class="tags"><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">ONNX</span><span class="tag">OpenCV</span><span class="tag">CNN / Transformer</span><span class="tag">模型量化与剪枝</span></div>
+        </div>
+        <div>
+          <h5>端侧部署</h5>
+          <div class="tags"><span class="tag">TensorRT</span><span class="tag">ONNX Runtime</span><span class="tag">TensorFlow Lite Micro</span><span class="tag">NVIDIA Jetson</span><span class="tag">NPU 推理加速</span><span class="tag">ROS 2</span><span class="tag">Linux</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="skills">
+      <div class="skill reveal">
+        <div class="ico">📐</div>
+        <h4>机械设计</h4>
+        <div class="tags">
+          <span class="tag">SolidWorks（精通）</span><span class="tag">AutoCAD</span>
+          <span class="tag">ArtCAM</span><span class="tag">KeyShot 渲染</span>
+        </div>
+      </div>
+      <div class="skill reveal d1">
+        <div class="ico">🔌</div>
+        <h4>嵌入式与电控</h4>
+        <div class="tags">
+          <span class="tag">Keil</span><span class="tag">Altium Designer</span>
+          <span class="tag">PLC（三菱 FX）</span><span class="tag">MATLAB</span>
+          <span class="tag">Visual Studio</span><span class="tag">PyCharm</span>
+        </div>
+      </div>
+      <div class="skill reveal d2">
+        <div class="ico">💻</div>
+        <h4>编程语言</h4>
+        <div class="tags">
+          <span class="tag">C</span><span class="tag">C++</span>
+          <span class="tag">Lua</span><span class="tag">Python</span>
+        </div>
+      </div>
+      <div class="skill reveal">
+        <div class="ico">🎬</div>
+        <h4>创意与表达</h4>
+        <div class="tags">
+          <span class="tag">剪映</span><span class="tag">After Effects</span>
+          <span class="tag">Photoshop</span><span class="tag">摄影</span>
+        </div>
+      </div>
+      <div class="skill reveal d1">
+        <div class="ico">🤝</div>
+        <h4>团队与管理</h4>
+        <div class="tags">
+          <span class="tag">4 次竞赛队长</span><span class="tag">班级团支书</span>
+          <span class="tag">机器人队核心成员</span>
+        </div>
+      </div>
+      <div class="skill reveal d2">
+        <div class="ico">🏃</div>
+        <h4>热爱运动</h4>
+        <div class="tags">
+          <span class="tag">武汉马拉松</span><span class="tag">光谷马拉松</span>
+          <span class="tag">长跑爱好者</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 校园与其他 ============ -->
+<section class="section light">
+  <div class="wrap">
+    <div class="reveal center">
+      <h2 class="h2">不止于课堂。</h2>
+    </div>
+    <div class="life-grid">
+      <div class="life reveal">
+        <div class="ico">🤖</div>
+        <h4>校竞技机器人队</h4>
+        <p>团队核心成员（2022.09 - 2025.07）。与队友从零搭建多代竞技机器人，实验室的深夜是大学最难忘的记忆。</p>
+      </div>
+      <div class="life reveal d1">
+        <div class="ico">🏅</div>
+        <h4>奖学金与荣誉称号</h4>
+        <p>校二等奖学金（2022-2024）、优秀大学生（2022-2024）、优秀共青团员、优秀共青团干部。</p>
+      </div>
+      <div class="life reveal d2">
+        <div class="ico">🏃</div>
+        <h4>马拉松 & 实习</h4>
+        <p>完成武汉马拉松、光谷马拉松；持有企业实习证明——工程能力在真实生产环境中同样经得起检验。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 页脚 ============ -->
+<footer>
+  <p class="fname reveal">夏成辉</p>
+  <p class="reveal d1" style="color:#86868b;margin-top:12px;font-size:15px">
+    湖北工业大学 · 机器人工程 · 2026 届 · 已保研至武汉理工大学机电工程学院
+  </p>
+  <div class="contact reveal d2">
+    <a class="main" href="docs/夏成辉个人简历.pdf" target="_blank">📄 下载完整简历（PDF）</a>
+    <a href="tel:13308688244">📞 133-0868-8244</a>
+    <a href="mailto:2210131107@hbut.edu.cn">✉️ 2210131107@hbut.edu.cn</a>
+  </div>
+</footer>
+
+<!-- ============ Lightbox ============ -->
+<div class="lb" id="lb">
+  <span class="close" id="lb-close">×</span>
+  <span class="arrow prev" id="lb-prev">‹</span>
+  <img id="lb-img" src="" alt="">
+  <p class="cap" id="lb-cap"></p>
+  <span class="arrow next" id="lb-next">›</span>
+</div>
+
+
+<script>
+/* 静态模式开关 */
+if (location.hash.includes('still')) document.documentElement.classList.add('still');
+
+/* 导航滚动状态 + 渐入渐出 */
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+
+/* 渐入渐出：进入视口淡入，离开视口淡出（双向） */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => e.target.classList.toggle('in', e.isIntersecting));
+}, {threshold:.12, rootMargin:'0px 0px -5% 0px'});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ============================================================
+   1. 荣誉墙：证书数据 + 渲染 + 过滤 + Lightbox
+   ============================================================ */
+const CERTS = [
+  // ---- 国家级 ----
+  {f:'国家级/2025中国大学生工程实践与创新能力大赛国家一等奖.png', t:'2025 中国大学生工程实践与创新能力大赛 · 国家一等奖', l:'国家级'},
+  {f:'国家级/2024年中国大学生机械工程创新创意大赛国一.jpeg', t:'2024 中国大学生机械工程创新创意大赛 · 国家一等奖', l:'国家级'},
+  {f:'国家级/2024第二十六届中国机器人及人工智能大赛国一证书.png', t:'2024 中国机器人及人工智能大赛 · 国家一等奖', l:'国家级'},
+  {f:'国家级/2024第十一届全国大学生机械创新设计大赛国二.jpg', t:'2024 全国大学生机械创新设计大赛 · 国家二等奖', l:'国家级'},
+  {f:'国家级/2024睿抗机器人开发者大赛国二证书.png', t:'2024 睿抗机器人开发者大赛 · 国家二等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON颗粒归仓竞技赛（操作挑战赛）国二.png', t:'2024 ROBOCON 颗粒归仓 · 操作挑战赛 国家二等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON仿生足式机器人挑战赛（室内障碍）国二.png', t:'2024 ROBOCON 仿生足式挑战赛 · 室内障碍 国家二等奖', l:'国家级'},
+  {f:'国家级/飞身上篮国二.png', t:'2025 ROBOCON"飞身上篮"篮球技能赛 · 投篮 国家二等奖', l:'国家级'},
+  {f:'国家级/2025-RC-J-S-B33-57193101.png', t:'2025 全国大学生机器人大赛 ROBOCON · 投篮赛 国家二等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON颗粒归仓主赛道国三.png', t:'2024 ROBOCON 颗粒归仓 · 主赛道 国家三等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON颗粒归仓竞技赛（编程挑战赛）国三.png', t:'2024 ROBOCON 颗粒归仓 · 编程挑战赛 国家三等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON仿生足式机器人挑战赛（室内竞速）国三.png', t:'2024 ROBOCON 仿生足式挑战赛 · 室内竞速 国家三等奖', l:'国家级'},
+  {f:'国家级/2024ROBOCON仿生足式机器人挑战赛（室外越野）国三.png', t:'2024 ROBOCON 仿生足式挑战赛 · 室外越野 国家三等奖', l:'国家级'},
+  {f:'国家级/2025-RC-J-S-B33-76517555.png', t:'2025 全国大学生机器人大赛 ROBOCON · 运（传）球赛 国家三等奖', l:'国家级'},
+  {f:'国家级/2025-RC-J-S-B33-92064861.png', t:'2025 全国大学生机器人大赛 ROBOCON · 篮球竞技赛 国家三等奖', l:'国家级'},
+  // ---- 省级 ----
+  {f:'省级/2025中国大学生工程实践与创新能力大赛省一.png', t:'2025 工程实践与创新能力大赛 · 省级一等奖', l:'省级'},
+  {f:'省级/2024第十一届全国大学生机械创新设计大赛省一证书.jpg', t:'2024 机械创新设计大赛 · 省级一等奖', l:'省级'},
+  {f:'省级/2024睿抗机器人开发者大赛省一证书.jpg', t:'2024 睿抗机器人开发者大赛 · 省级一等奖', l:'省级'},
+  {f:'省级/2024第二十六届中国机器人及人工智能大赛省一.jpg', t:'2024 中国机器人及人工智能大赛 · 省级一等奖', l:'省级'},
+  {f:'省级/2024年中国大学生机械工程创新创意大赛省二.jpg', t:'2024 机械工程创新创意大赛 · 省级二等奖', l:'省级'},
+  {f:'省级/2023睿抗机器人开发者大赛省二证书.jpg', t:'2023 睿抗机器人开发者大赛 · 省级二等奖', l:'省级'},
+  {f:'省级/2023中国高校智能机器人大赛省二.jpg', t:'2023 中国高校智能机器人大赛 · 省级二等奖', l:'省级'},
+  {f:'省级/2023年中国大学生机械工程创新创意大赛省三.jpg', t:'2023 机械工程创新创意大赛 · 省级三等奖', l:'省级'},
+  // ---- 校 / 院级 ----
+  {f:'校级/优秀大学生2022-2023.jpg', t:'2022-2023 学年 · 校级优秀大学生', l:'校级'},
+  {f:'校级/优秀大学生2023-2024.jpg', t:'2023-2024 学年 · 校级优秀大学生', l:'校级'},
+  {f:'校级/校优秀共青团员.jpg', t:'校级优秀共青团员', l:'校级'},
+  {f:'院级/优秀共青团员干部.jpg', t:'院级优秀共青团干部', l:'院级'},
+  // ---- 其他 ----
+  {f:'其他/实习证明.jpg', t:'企业实习证明', l:'其他'},
+  {f:'其他/武汉马拉松.jpg', t:'武汉马拉松完赛证明', l:'其他'},
+  {f:'其他/光谷马拉松.jpg', t:'光谷马拉松完赛证明', l:'其他'}
+];
+
+const gallery = document.getElementById('gallery');
+CERTS.forEach((c, i) => {
+  const div = document.createElement('div');
+  div.className = 'cert';
+  div.dataset.lvl = c.l;
+  div.dataset.idx = i;
+  div.innerHTML = `<img src="awards/${encodeURI(c.f)}" alt="${c.t}" loading="lazy">
+    <div class="cap"><h6>${c.t}</h6><span class="lv-${c.l === '院级' ? '院' : c.l}">${c.l}</span></div>`;
+  div.addEventListener('click', () => {
+    const cards = [...document.querySelectorAll('.cert:not(.hide)')];
+    const list = cards.map(c => ({
+      src: c.querySelector('img').src,
+      cap: c.querySelector('h6').textContent
+    }));
+    openLbList(list, cards.indexOf(div));
+  });
+  gallery.appendChild(div);
+});
+
+/* 过滤 */
+document.querySelectorAll('.fbtn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('on'));
+    btn.classList.add('on');
+    const f = btn.dataset.f;
+    document.querySelectorAll('.cert').forEach(card => {
+      const lvl = card.dataset.lvl;
+      const show = f === 'all'
+        || (f === '校级' && (lvl === '校级' || lvl === '院级'))
+        || lvl === f;
+      card.classList.toggle('hide', !show);
+    });
+  });
+});
+
+/* Lightbox（通用：证书与照片共用） */
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+let lbList = [], lbCur = 0;
+
+function openLbList(list, idx){
+  lbList = list; lbCur = idx;
+  renderLb();
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function renderLb(){
+  const it = lbList[lbCur];
+  lbImg.src = it.src;
+  lbCap.textContent = it.cap;
+}
+function closeLb(){ lb.classList.remove('open'); document.body.style.overflow = ''; }
+document.getElementById('lb-close').addEventListener('click', closeLb);
+lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
+document.getElementById('lb-prev').addEventListener('click', e => {
+  e.stopPropagation(); lbCur = (lbCur - 1 + lbList.length) % lbList.length; renderLb();
+});
+document.getElementById('lb-next').addEventListener('click', e => {
+  e.stopPropagation(); lbCur = (lbCur + 1) % lbList.length; renderLb();
+});
+addEventListener('keydown', e => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLb();
+  if (e.key === 'ArrowLeft') document.getElementById('lb-prev').click();
+  if (e.key === 'ArrowRight') document.getElementById('lb-next').click();
+});
+
+/* .lb-trigger 元素：点击打开灯箱（按所在容器分组切换） */
+document.querySelectorAll('.lb-trigger').forEach(el => {
+  el.addEventListener('click', () => {
+    const sibs = [...el.parentElement.querySelectorAll('.lb-trigger')];
+    const list = sibs.map(s => ({
+      src: s.querySelector('img').src,
+      cap: s.dataset.cap || (s.querySelector('figcaption')?.textContent ?? '')
+    }));
+    openLbList(list, sibs.indexOf(el));
+  });
+});
+
+</script>
+</body>
+</html>
