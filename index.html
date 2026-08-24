@@ -35,7 +35,7 @@ ul{list-style:none}
   border-bottom:1px solid rgba(255,255,255,0);transition:border-color .3s;
 }
 .nav.scrolled{border-bottom-color:rgba(255,255,255,.09)}
-.nav-inner{max-width:1080px;height:100%;margin:0 auto;padding:0 22px;
+.nav-inner{width:100%;max-width:100%;height:100%;margin:0 auto;padding:0 40px;
   display:flex;align-items:center;justify-content:space-between;gap:16px}
 .nav .name{font-size:17px;font-weight:600;
   background:linear-gradient(92deg,#ffd9b8,#ff9a4d 45%,#f56300);
@@ -49,32 +49,31 @@ ul{list-style:none}
 @media (max-width:860px){.nav-links{display:none}}
 
 /* ============ 通用 ============ */
-.section{padding:110px 24px;position:relative;overflow:hidden}
+.section{padding:150px 24px;position:relative;overflow:hidden;min-height:100vh}
 .section.light{background:#fff;color:var(--text-dark)}
 .section.gray{background:#f5f5f7;color:var(--text-dark)}
-.wrap{max-width:1080px;margin:0 auto;position:relative;z-index:2}
+.wrap{width:100%;max-width:100%;padding:0 40px;margin:0 auto;position:relative;z-index:2}
 .eyebrow{font-size:16px;font-weight:600;color:var(--orange);margin-bottom:14px}
 .section.light .eyebrow,.section.gray .eyebrow{color:#c2410c}
 .h2{font-size:clamp(34px,5.4vw,56px);font-weight:700;letter-spacing:-.015em;line-height:1.14}
 .h2 .thin{color:var(--gray-2)}
 .section.light .h2 .thin,.section.gray .h2 .thin{color:#86868b}
-.lead{font-size:clamp(18px,2.3vw,24px);line-height:1.55;margin-top:20px;color:#b9b9be;max-width:800px}
+.lead{font-size:clamp(18px,2.3vw,24px);line-height:1.55;margin-top:20px;color:#b9b9be;max-width:100%}
 .section.light .lead,.section.gray .lead{color:#494949}
 .center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
 .grad-orange{background:linear-gradient(92deg,#ffd9b8,#ff9a4d 45%,#f56300);
   -webkit-background-clip:text;background-clip:text;color:transparent}
 
 /* ============ Hero ============ */
-.hero{padding:110px 24px 70px;text-align:center;position:relative;overflow:hidden}
+.hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center}
 .hero::before{content:"";position:absolute;left:50%;top:-20vw;transform:translateX(-50%);
   width:110vw;height:70vw;pointer-events:none;
   background:radial-gradient(50% 50% at 50% 50%,rgba(245,99,0,.20),transparent 70%)}
 .hero .kick{font-size:17px;color:var(--gray-2);position:relative}
 .hero h1{font-size:clamp(64px,10vw,124px);font-weight:700;letter-spacing:.02em;line-height:1.06;
-  margin-top:14px;position:relative;
+  position:relative;
   background:linear-gradient(94deg,#fff 0%,#ffd9b8 30%,#ff9a4d 62%,#f56300 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .sub{color:var(--gray-2);font-size:16px;margin-top:22px;position:relative;line-height:1.7}
 .badges{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:34px;position:relative}
 .badge{font-size:14px;font-weight:600;padding:9px 18px;border-radius:980px;
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16)}
@@ -82,7 +81,7 @@ ul{list-style:none}
 
 /* ============ 概览 ============ */
 .overview-text{font-size:clamp(23px,3.4vw,38px);line-height:1.45;font-weight:600;
-  letter-spacing:-.01em;max-width:920px;margin:0 auto;text-align:center}
+  letter-spacing:-.01em;max-width:100%;margin:0 auto;text-align:center}
 .overview-text .dim{color:#6e6e73}
 .overview-text .hi{background:linear-gradient(92deg,#ff9a4d,#f56300);
   -webkit-background-clip:text;background-clip:text;color:transparent}
@@ -109,7 +108,7 @@ ul{list-style:none}
 .chip b{color:#c2410c}
 
 /* ============ 保研去向 ============ */
-.grad-banner{max-width:860px;margin:54px auto 0;display:flex;align-items:center;gap:26px;
+.grad-banner{max-width:100%;margin:54px auto 0;display:flex;align-items:center;gap:26px;
   background:linear-gradient(135deg,rgba(245,99,0,.16),rgba(245,99,0,.04));
   border:1px solid rgba(245,99,0,.38);border-radius:26px;padding:34px 40px;
   flex-wrap:wrap;justify-content:center;text-align:center}
@@ -157,7 +156,7 @@ ul{list-style:none}
 .tile .when{font-size:13px;color:var(--gray-2);margin-top:16px}
 
 /* ============ 作品实况 ============ */
-.showcase{max-width:1000px;margin:56px auto 0;border-radius:28px;overflow:hidden;
+.showcase{width:100%;margin:56px auto 0;border-radius:28px;overflow:hidden;
   border:1px solid rgba(255,255,255,.14);position:relative;
   background:radial-gradient(80% 90% at 50% 0%,#1b1b20,#0a0a0c)}
 .showcase img{width:100%;display:block;max-height:620px;object-fit:contain;background:#0a0a0c}
@@ -165,7 +164,7 @@ ul{list-style:none}
   background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16);color:#f5f5f7;
   padding:6px 14px;border-radius:980px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 .showcase-cap{padding:16px 22px 20px;color:#a8a8ad;font-size:14px;text-align:center}
-.real-media.single{grid-template-columns:1fr;max-width:760px}
+.real-media.single{grid-template-columns:1fr;max-width:100%}
 .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:24px auto 0}
 @media (max-width:760px){.video-grid{grid-template-columns:1fr}}
 .vid-card{margin:0}
@@ -174,13 +173,14 @@ ul{list-style:none}
 .vid-card figcaption{color:var(--gray-2);font-size:13.5px;text-align:center;margin-top:12px}
 .spec-list{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
 @media (max-width:900px){.spec-list{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1600px){.spec-list{grid-template-columns:repeat(6,1fr)}}
 .sp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px 20px}
 .sp .ico{font-size:22px}
 .sp h5{font-size:13px;color:var(--gray-2);margin:10px 0 5px;font-weight:600}
 .sp p{font-size:15px;font-weight:600;line-height:1.4}
 
 /* ============ 专利 ============ */
-.patent-card{max-width:860px;margin:54px auto 0;background:#fff;border:1px solid #e6e6e9;
+.patent-card{max-width:100%;margin:54px auto 0;background:#fff;border:1px solid #e6e6e9;
   border-radius:28px;padding:48px 44px;position:relative;overflow:hidden}
 .patent-card::before{content:"";position:absolute;top:-120px;right:-120px;width:320px;height:320px;
   background:radial-gradient(circle,rgba(245,99,0,.14),transparent 70%)}
@@ -190,7 +190,7 @@ ul{list-style:none}
 .p-tag{font-size:13.5px;color:#494949;background:#f5f5f7;border:1px solid #e6e6e9;
   padding:7px 14px;border-radius:980px}
 .p-tag b{color:#1d1d1d}
-.timeline{max-width:760px;margin:60px auto 0;position:relative;padding-left:34px}
+.timeline{max-width:100%;margin:60px auto 0;position:relative;padding-left:34px}
 .timeline::before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;
   background:linear-gradient(180deg,#ffd9b8,#f56300)}
 .t-item{position:relative;padding:0 0 38px 24px}
@@ -275,14 +275,14 @@ footer .contact a:hover{background:rgba(255,255,255,.14)}
 footer .contact a.main{background:#f5f5f7;color:#000;border-color:#f5f5f7;font-weight:600}
 
 /* ============ 实拍 / 专利配图 / 瞬间画廊 ============ */
-.real-media{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:1000px;margin:44px auto 0}
+.real-media{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:100%;margin:44px auto 0}
 @media (max-width:760px){.real-media{grid-template-columns:1fr}}
 .rm-card,.pm,.moment{margin:0;cursor:pointer}
 .rm-card img,.pm img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;
   border-radius:22px;border:1px solid rgba(255,255,255,.14);transition:transform .35s}
 .rm-card:hover img,.pm:hover img{transform:scale(1.015)}
 .rm-card figcaption{color:var(--gray-2);font-size:13.5px;text-align:center;margin-top:12px}
-.patent-media{display:grid;grid-template-columns:1fr 1fr;gap:22px;max-width:860px;margin:40px auto 0}
+.patent-media{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:100%;margin:40px auto 0}
 @media (max-width:760px){.patent-media{grid-template-columns:1fr}}
 .pm img{border:1px solid #e3e3e6;border-radius:20px;background:#fff}
 .pm figcaption{color:#6e6e73;font-size:13.5px;text-align:center;margin-top:12px}
@@ -295,6 +295,19 @@ footer .contact a.main{background:#f5f5f7;color:#000;border-color:#f5f5f7;font-w
 .moment img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;transition:transform .35s}
 .moment:hover img{transform:scale(1.04)}
 .moment figcaption{font-size:12.5px;color:#a8a8ad;padding:10px 12px;text-align:center}
+
+/* ============ DIY / 摄影作品集 ============ */
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+@media (max-width:900px){.portfolio-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.portfolio-grid{grid-template-columns:1fr}}
+.pf-card{margin:0;cursor:pointer;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:18px;overflow:hidden;transition:transform .3s,border-color .3s}
+.pf-card:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.22)}
+.pf-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.pf-card figcaption{font-size:13px;color:#a8a8ad;padding:12px 14px;text-align:center;line-height:1.4}
+.section.light .pf-card{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1)}
+.section.light .pf-card:hover{border-color:rgba(0,0,0,.22)}
+.section.light .pf-card figcaption{color:#6e6e73}
 
 /* ============ 滚动渐入渐出 ============ */
 .reveal{opacity:0;transform:translateY(30px);
@@ -315,7 +328,7 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
 <!-- ============ 导航 ============ -->
 <nav class="nav" id="nav">
   <div class="nav-inner">
-    <span class="name">夏成辉</span>
+    <span class="name">夏成辉个人介绍</span>
     <div class="nav-links">
       <a href="#grad">保研去向</a>
       <a href="#edu">教育背景</a>
@@ -332,17 +345,20 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
 
 <!-- ============ Hero ============ -->
 <header class="hero">
-  <p class="kick reveal">武汉理工大学 · 机电工程学院 · 硕士研究生</p>
   <h1 class="reveal d1">个人简历</h1>
-  <p class="sub reveal d3">中共党员 · 班级团支书 · 校竞技机器人队核心成员 · 已保研至武汉理工大学</p>
 
   <div class="badges reveal d3">
-    <span class="badge hot">🎓 本科：湖北工业大学机械工程学院</span>
-    <span class="badge hot">🏆 国家级一等奖 ×3</span>
-    <span class="badge">🎖️ 国家级证书 15 项</span>
-    <span class="badge">📜 发明专利 1 项（学生一作）</span>
-    <span class="badge">🤖 四代机器人整车设计</span>
-    <span class="badge">📖 英语六级（CET-6）</span>
+    <div class="badge-line" style="width:100%;text-align:center;font-size:15px;font-weight:600;color:#f5f5f7;margin-bottom:6px;line-height:1.6">
+      🎓 本科：湖北工业大学机械工程学院机器人工程专业<br>
+      🎓 硕士：武汉理工大学机电工程学院机械工程专业（保研）
+    </div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <span class="badge hot">🏆 国家级一等奖 ×4</span>
+      <span class="badge">🎖️ 国家级证书 15 项</span>
+      <span class="badge">📜 发明专利 1 项（学生一作）</span>
+      <span class="badge">📖 英语六级（CET-6）</span>
+      <span class="badge">📖 英语四级（CET-4）</span>
+    </div>
   </div>
 </header>
 
@@ -353,7 +369,7 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
       四年时间，我把课堂搬进了车间：
       从 <span class="hi">机械结构设计</span> 到 <span class="hi">嵌入式控制</span>，
       从陀螺仪融合算法到机器视觉抓取，
-      作为队长带队拿下 <span class="hi">中国大学生工程实践与创新能力大赛国家一等奖</span>。
+      作为队长带队拿下 <span class="hi">中国大学生工程实践与创新能力大赛国家一等奖</span> 与 <span class="hi">中国大学生机械工程创新创意大赛国家一等奖</span>。
       <span class="dim">设计、制造、编程、调试——我享受让一台机器人从零到跑起来的全过程。
       下一站武汉理工大学，让智能算法跑进方寸芯片之间。</span>
     </p>
@@ -498,22 +514,16 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
       <p class="showcase-cap">🎬 机械臂抓取红蓝绿物料实录 —— 自主识别 · 精准抓取 · 搬运放置</p>
     </div>
 
-    <div class="video-grid reveal">
-      <figure class="vid-card">
-        <video src="videos/循迹演示.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
-        <figcaption>🚗 循迹演示 · 自动播放</figcaption>
-      </figure>
-      <figure class="vid-card">
-        <video src="videos/抓取演示.mp4" autoplay muted loop playsinline controls preload="metadata"></video>
-        <figcaption>🦾 抓取演示 · 自动播放</figcaption>
-      </figure>
-    </div>
-
     <div class="real-media single reveal">
       <figure class="rm-card lb-trigger" data-cap="物流小车整车真机 · 2025 工训国赛国家一等奖">
         <img src="photos/物流车图片.jpg" alt="物流小车真机" loading="lazy">
         <figcaption>📷 整车真机 · 2025 工训国赛国家一等奖</figcaption>
       </figure>
+    </div>
+
+    <div class="showcase-video reveal" style="width:100%;margin:24px auto 0;border-radius:22px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0a0a0c">
+      <img src="photos/物流车演示视频.gif" alt="物流小车运行演示" style="width:100%;display:block;max-height:600px;object-fit:contain">
+      <p style="color:var(--gray-2);font-size:13.5px;text-align:center;padding:14px 20px">🚚 物流小车全程运行演示 · 自动循环播放</p>
     </div>
 
     <div class="spec-list">
@@ -546,14 +556,22 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
         <span class="p-tag">状态 <b>已公布 · 进入实质审查</b></span>
       </div>
     </div>
-    <div class="patent-media reveal">
-      <figure class="pm lb-trigger" data-cap="薏米播种施肥机 · 运行演示">
-        <img src="photos/薏米播种施肥机.gif" alt="薏米播种施肥机运行演示" loading="lazy">
-        <figcaption>薏米播种施肥机 · 运行演示</figcaption>
-      </figure>
+    <div class="patent-media grid-2x2 reveal">
       <figure class="pm lb-trigger" data-cap="薏米播种施肥机整机 · 专利源自该竞赛作品">
-        <img src="photos/播种机图片.png" alt="薏米播种施肥机" loading="lazy">
-        <figcaption>整机展示 · 专利源自该竞赛作品</figcaption>
+        <img src="photos/播种机图片.png" alt="薏米播种施肥机实拍" loading="lazy">
+        <figcaption>整机实拍 · 专利源自该竞赛作品</figcaption>
+      </figure>
+      <figure class="pm lb-trigger" data-cap="薏米播种施肥机 · 产品渲染图">
+        <img src="photos/播种机渲染图.png" alt="薏米播种施肥机渲染图" loading="lazy">
+        <figcaption>🎨 产品渲染图</figcaption>
+      </figure>
+      <figure class="pm lb-trigger" data-cap="薏米播种施肥机 · 连动演示">
+        <img src="photos/传动演示.gif" alt="薏米播种施肥机连动演示" loading="lazy">
+        <figcaption>薏米播种施肥机 · 连动演示</figcaption>
+      </figure>
+      <figure class="pm lb-trigger" data-cap="薏米播种施肥机 · 整体介绍演示">
+        <img src="photos/薏米播种机介绍演示视频.gif" alt="薏米播种机介绍演示" loading="lazy">
+        <figcaption>📺 整体介绍演示 · 自动循环播放</figcaption>
       </figure>
     </div>
     <div class="timeline">
@@ -740,6 +758,88 @@ html.still .reveal{opacity:1 !important;transform:none !important;transition:non
         <h4>马拉松 & 实习</h4>
         <p>完成武汉马拉松、光谷马拉松；持有企业实习证明——工程能力在真实生产环境中同样经得起检验。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIY 作品集 ============ -->
+<section class="section" id="diy">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">DIY 作品集</p>
+      <h2 class="h2">自己动手，<span class="thin">把想法变成实物。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">从 PCB 绘制到机械结构组装，每一件作品都亲手完成。</p>
+    </div>
+    <div class="portfolio-grid">
+      <figure class="pf-card reveal lb-trigger" data-cap="Dummy 机械臂 · 从硬件绘制焊接到机械结构组装调试">
+        <img src="photos/diy/Dummy机械臂_从硬件绘制焊接到机械结构组装调试、.JPG" alt="Dummy机械臂" loading="lazy">
+        <figcaption>🦾 Dummy 机械臂<br><span style="font-size:12px;color:#6e6e73">从硬件绘制焊接到组装调试</span></figcaption>
+      </figure>
+      <figure class="pf-card reveal d1 lb-trigger" data-cap="Exlink · 集无线烧录、串口调试、数字电源于一体">
+        <img src="photos/diy/Exlink_集无线烧录、串口调试、数字电源于一体.jpg" alt="Exlink工具" loading="lazy">
+        <figcaption>🔧 Exlink 工具<br><span style="font-size:12px;color:#6e6e73">无线烧录 · 串口调试 · 数字电源</span></figcaption>
+      </figure>
+      <figure class="pf-card reveal d2 lb-trigger" data-cap="STM32F407 开发板绘制">
+        <img src="photos/diy/stm32f407开发板绘制.jpg" alt="STM32开发板" loading="lazy">
+        <figcaption>💻 STM32F407 开发板<br><span style="font-size:12px;color:#6e6e73">自主绘制、打样、焊接</span></figcaption>
+      </figure>
+      <figure class="pf-card reveal lb-trigger" data-cap="四足舵机狗">
+        <img src="photos/diy/四足舵机狗.png" alt="四足舵机狗" loading="lazy">
+        <figcaption>🐕 四足舵机狗<br><span style="font-size:12px;color:#6e6e73">12 自由度 · 舵机驱动</span></figcaption>
+      </figure>
+      <figure class="pf-card reveal d1 lb-trigger" data-cap="平衡轮足机器人">
+        <img src="photos/diy/平衡轮足机器人.JPG" alt="平衡轮足机器人" loading="lazy">
+        <figcaption>⚖️ 平衡轮足机器人<br><span style="font-size:12px;color:#6e6e73">自平衡算法 · 轮足混合</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 摄影作品集 ============ -->
+<section class="section light" id="photography">
+  <div class="wrap">
+    <div class="reveal center">
+      <p class="eyebrow">摄影作品集</p>
+      <h2 class="h2">用镜头，<span class="thin">记录生活与工程。</span></h2>
+      <p class="lead" style="margin-left:auto;margin-right:auto">赛事现场、机器细节、日常光影——按下快门，定格瞬间。</p>
+    </div>
+    <div class="portfolio-grid">
+      <figure class="pf-card reveal lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/c4ae821cc6bf3325da6a8d828bb34388.jpeg" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d1 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/cac0568e8r954b75e83c6ee9041c9775.jpg" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d2 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1446.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d3 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1885.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1886.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d1 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1888.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d2 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1889.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal d3 lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/2fcbbd9f4vf13d07dc2699bac8b357db.jpg" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
+      <figure class="pf-card reveal lb-trigger" data-cap="摄影作品">
+        <img src="photos/photography/IMG_1891.JPG" alt="摄影作品" loading="lazy">
+        <figcaption>📷 摄影作品</figcaption>
+      </figure>
     </div>
   </div>
 </section>
